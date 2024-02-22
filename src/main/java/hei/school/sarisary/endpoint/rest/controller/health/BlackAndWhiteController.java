@@ -44,13 +44,13 @@ public class BlackAndWhiteController {
         expiration.setTime(expTimeMillis);
 
         GeneratePresignedUrlRequest generatePresignedUrlRequest =
-                new GeneratePresignedUrlRequest("bucketName", id)
+                new GeneratePresignedUrlRequest("preprod-bucket-poja-sarisary-std22020-bucket-lmbduiuobx2u", id)
                         .withMethod(com.amazonaws.HttpMethod.GET)
                         .withExpiration(expiration);
         URL originalUrl = s3Client.generatePresignedUrl(generatePresignedUrlRequest);
 
         GeneratePresignedUrlRequest generateTransformedUrlRequest =
-                new GeneratePresignedUrlRequest("bucketName", id)
+                new GeneratePresignedUrlRequest("preprod-bucket-poja-sarisary-std22020-bucket-lmbduiuobx2u", id)
                         .withMethod(HttpMethod.GET)
                         .withExpiration(expiration);
         URL transformedUrl = s3Client.generatePresignedUrl(generateTransformedUrlRequest);
